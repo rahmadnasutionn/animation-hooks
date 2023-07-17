@@ -6,3 +6,9 @@ interface HooksType {
   usage: any;
   hook: any;
 };
+
+interface VariansType {
+  name: string;
+  preview: any;
+  code: any;
+};

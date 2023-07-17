@@ -58,3 +58,5 @@ export const faqs = [
       "No, you don't need to give credit to Variant Vault. However, if you want to, you can link to Variant Vault on Twitter @abdo_eth.",
   },
 ];
+
+export let generateZeros = (n: number) => Array(n).fill(0);

@@ -144,5 +144,33 @@ export default function StaggeredFade() {
       ))}
     </motion.h1>
   );
+};`
+
+export const TYPING_EFFECT = `
+import { useState, useEffect } from 'react';
+
+export default function TypingEffect() {
+  const text = 'Hello World';
+  const [displayText, setDisplayText] = useState('');
+  const [i, setI] = useState(0);
+
+  useEffect(() => {
+    const typingEffect = setInterval(() => {
+      if (i < text.length) {
+        setDisplayText((prevState) => prevState + text.charAt(i));
+        setI(i + 1);
+      } else {
+        clearInterval(typingEffect);
+      }
+    }, 1000);
+    return () => clearInterval(typingEffect);
+  }, [i]);
+  return (
+    <div>
+      <span className="text-center font-display text-4xl font-bold tracking-[-0.02em] drop-shadow-sm md:text-7xl md:leading-[5rem]">
+        {displayText ? displayText : 'Hello World'}
+      </span>
+    </div>
+  )
 }
-`;
+`

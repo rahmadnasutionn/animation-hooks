@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import * as config from '~/lib/config';
 
 export default function Footer() {
   return (
@@ -17,7 +17,7 @@ export default function Footer() {
           </Link>
           . The source code is available on&nbsp;
           <Link
-            href="https://github.com"
+            href={config.githubRepo}
             target="_blank"
             rel="noreferrer"
             className="font-medium underline underline-offset-4"

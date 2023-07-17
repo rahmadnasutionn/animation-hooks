@@ -1,14 +1,16 @@
 "use client";
+
 import { useState } from 'react';
-import NavLinks from './nav-links';
-import Logo from './logo';
 import Link from 'next/link';
-import { Button } from '../ui/button';
-import { GitHub } from '../icons/github';
-import { Twitter } from '../icons/twitter';
-import ToggleTheme from './toggle-theme';
 import useEventListener from '~/lib/hooks/use-event-listener';
 import { cn } from '~/lib/utils';
+import * as config from '~/lib/config';
+
+import Logo from './logo';
+import { Button } from '../ui/button';
+import { GitHub } from '../icons/github';
+import ToggleTheme from './toggle-theme';
+import NavLinks from './nav-links';
 
 function MainNav() {
   const [isScroll, setIsScroll] = useState(false);
@@ -38,18 +40,19 @@ function MainNav() {
           </div>
         </div>
         <div className="hidden lg:flex space-x-1 z-50">
-          <Link href={'github'}>
-            <Button className='flex items-center' variant={'ghost'} size={'icon'}>
-              <GitHub />
-            </Button>
-          </Link>
           <Link 
-            href={'github'}
-            target='_blank'
-            rel='noreferrer'
+            href={config.githubRepo}
+            rel={config.githubRepo ? 'referrer' : ''}
           >
-            <Button className='flex items-center' variant={'ghost'} size={'icon'}>
-              <Twitter />
+            <Button
+              type='button' 
+              aria-label='Github'
+              className='flex items-center' 
+              variant={'ghost'} 
+              size={'icon'}
+            >
+              <GitHub />
+              <span className='sr-only' aria-hidden='true'>Github</span>
             </Button>
           </Link>
           <ToggleTheme />
