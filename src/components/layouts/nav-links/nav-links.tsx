@@ -15,6 +15,7 @@ function NavLinks() {
     <div className='flex items-center space-x-6'>
       {navItems.map(({ label, url }) => (
         <Link
+          key={label}
           className={cn(
             'transition-colors hover:text-foreground/80 text-[18px]',
             pathname === `/${url}` ? 'text-foreground' : 'text-foreground/60'

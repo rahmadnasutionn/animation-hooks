@@ -16,8 +16,8 @@ import Reload from '~/components/icons/reload';
 
 interface VariantList {
   variant: VariansType;
-  index: number;
-  restartAnimation: (index: number) => void;
+  index?: number;
+  restartAnimation?: (index: number | undefined) => void;
 }
 
 function VariantList({ variant, index, restartAnimation }: VariantList) {
@@ -33,7 +33,8 @@ function VariantList({ variant, index, restartAnimation }: VariantList) {
           </h1>
           <Button 
             variant={'ghost'}
-            className='lg:hidden '
+            className='lg:hidden'
+             /* @ts-ignore */
             onClick={() => restartAnimation(index)}
           >
             <Reload className='w-4 h-4 ' />
@@ -51,6 +52,7 @@ function VariantList({ variant, index, restartAnimation }: VariantList) {
               <TooltipTrigger asChild>
                 <Button 
                   aria-label='Reload Animation'
+                  /* @ts-ignore */
                   onClick={() => restartAnimation(index)}
                 >
                   <Reload className='w-4 h-4 ' />

@@ -6,7 +6,7 @@ import * as config from '~/lib/config';
 
 import MainNav from '~/components/layouts/main-nav'
 import ThemeProvider from '~/components/theme-provider';
-import Footer from '~/components/layouts/footer';
+import Footer from '~/components/layouts/footer/footer';
 import ScrollToTop from '~/components/layouts/scroll-to-top';
 
 const inter = Inter({ subsets: ['latin'] })

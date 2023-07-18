@@ -10,7 +10,7 @@ import Logo from './logo';
 import { Button } from '../ui/button';
 import { GitHub } from '../icons/github';
 import ToggleTheme from './toggle-theme';
-import NavLinks from './nav-links';
+import NavLinks from './nav-links/nav-links';
 
 function MainNav() {
   const [isScroll, setIsScroll] = useState(false);

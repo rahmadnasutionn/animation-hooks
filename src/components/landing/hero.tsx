@@ -11,7 +11,7 @@ function Hero({
   description,
 }: {
   text: string,
-  description: string,
+  description?: string,
 }) {
   return (
     <div className='max-w-7xl mx-auto px-6 lg:px-8'>
@@ -32,12 +32,14 @@ function Hero({
           <motion.h1
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className='text-4xl font-bold tracking-tight sm:text-6xl'
+            data-testid='text'
           >
             {toTitleCase(text)}
           </motion.h1>
           <motion.p
             variants={FADE_DOWN_ANIMATION_VARIANTS}
             className='mt-6 text-lg leading-8 mb-8'
+            data-testid='description'
           >
             {description}
           </motion.p>
