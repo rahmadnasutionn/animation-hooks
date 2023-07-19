@@ -75,7 +75,12 @@ function TextVariants() {
           </div>
           {filteredQuery.length > 0 ? (
             filteredQuery.map((variant, index) => (
-              <VariantList variant={variant} index={index} restartAnimation={restartAnimation} />
+              <VariantList
+                key={variant.name}
+                variant={variant} 
+                index={index} 
+                restartAnimation={restartAnimation} 
+              />
             ))
           ) : (
             <p>No variants found</p>

@@ -25,4 +25,4 @@ export default function usecopyToClipboard(): [CopiedValue, CopyFn] {
   }
 
   return [copiedText, copy];
-}
+};
