@@ -20,6 +20,7 @@ function MobileNav() {
         <Button
           variant={'ghost'}
           size={'icon'}
+          aria-label='Menu'
         >
           <Menu />
         </Button>

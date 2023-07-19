@@ -22,7 +22,26 @@ export const metadata: Metadata = {
     'React.JS',
     'Server Components',
     'Framer Motion'
-  ]
+  ],
+  authors: [
+    {
+      name: 'Rahmad Nasution',
+      url: 'https://github.com/rahmadnasutionn/'
+    },
+  ],
+  creator: 'Rahmad Nasution',
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+  openGraph: {
+    type: 'website',
+    locale: 'en_US',
+    url: config.url,
+    title: config.title,
+    description: config.description,
+    siteName: config.title
+  }
 };
 
 export default function RootLayout({

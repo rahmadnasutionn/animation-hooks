@@ -98,7 +98,7 @@ function AnimationCarousel() {
             <div className="flex justify-between space-x-1">
               <Select>
                 <SelectTrigger className='w-[250px] bg-background'>
-                  <SelectValue placeholder='search animation' />
+                  <SelectValue aria-label='Search animation' placeholder='search animation' />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
@@ -118,10 +118,14 @@ function AnimationCarousel() {
                       <TooltipTrigger asChild>
                         <Button
                           size={'icon'}
+                          aria-label={button.tooltipText}
                           variant={'outline'}
                           onClick={button.function}
                         >
                           <button.icon />
+                          <span className='sr-only'>
+                            {button.tooltipText}
+                          </span>
                         </Button>
                       </TooltipTrigger>
                       <TooltipContent>

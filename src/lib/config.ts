@@ -6,3 +6,4 @@ export const description =
 
 export const githubRepo = 
   'https://github.com/rahmadnasutionn/animation-hooks';
+export const url = 'https://animation-hooks.vercel.app/';
