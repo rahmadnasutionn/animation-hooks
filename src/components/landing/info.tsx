@@ -1,30 +1,18 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { FADE_DOWN_ANIMATION_VARIANTS, FADE_UP_ANIMATION_VARIANTS } from '~/lib/animation';
+import { 
+  FADE_DOWN_ANIMATION_VARIANTS,
+  FADE_UP_ANIMATION_VARIANTS 
+} from '~/lib/animation';
 import Image from 'next/image';
 import Heart from '../icons/heart';
+import { features } from '~/lib/utils';
 
 function Info() {
-    const features = [
-        {
-          name: "2M+ Weekly Framer Motion Users.",
-          description:
-            "Framer Motion is one of the most popular animation library for React. Find some quick and easy to use animations for your next project.",
-        },
-        {
-          name: "Easy Integration.",
-          description:
-            "All the variants are super easy to integrate into your own project. Just copy and paste.",
-        },
-        {
-          name: "Beautiful Animations.",
-          description:
-            "Hand crafted animations that are simple, subtle, and beautiful.",
-        },
-      ];
+  
   return (
-    <div className='overflow-hidden py-24 mt-12'>
+    <div className='overflow-hidden py-24 mt-12 sm:py-32'>
       <div className="mx-auto max-w-7xl w-full px-4 lg:px-8">
         <div className="mx-auto grid grid-cols-1 lg:grid-cols-2 lg:max-w-none max-w-2xl gap-x-8 gap-y-6">
           <div className="lg:pr-8 lg:pt-4">
@@ -40,7 +28,7 @@ function Info() {
                   }
                 }}
               >
-                <motion.h4 variants={FADE_UP_ANIMATION_VARIANTS} className='text-base font-semibold text-muted-foreground leading-7'>
+                <motion.h4 variants={FADE_UP_ANIMATION_VARIANTS} className='text-base font-semibold text-muted-foreground leading-7 sm:mt-32 lg:mt-0'>
                   Get started quickly
                 </motion.h4>
                 <motion.p variants={FADE_UP_ANIMATION_VARIANTS} className='text-3xl mt-2 font-bold tracking-tight'>
@@ -70,7 +58,7 @@ function Info() {
             </div>
           </div>
           <Image 
-            src={'/landing.jpeg'}
+            src={'/ss.png'}
             alt='Landing Image'
             width={2432}
             height={1442}

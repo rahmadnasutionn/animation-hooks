@@ -6,9 +6,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger
 } from '../ui/dropdown-menu'
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger 
+} from '../ui/tooltip';
 import { Button } from '../ui/button'
 import Tick from '../icons/tick';
 import Copy from '../icons/copy';
+
 import usecopyToClipboard from '~/lib/hooks/usecopy-to-clipboard';
 import { useToast } from '~/lib/hooks/use-toast';
 
@@ -22,12 +29,30 @@ function CopyToClipboard() {
         <Button 
           size={'icon'}
           variant={'outline'}
-          className='group/button opacity-0 group-hover:opacity-100 focus:opacity-100 absolute right-2 top-1.5 overflow-hidden text-2xl'
+          className='absolute right-2 top-1.5 overflow-hidden text-2xl'
         >
           {value ? (
-            <Tick className='w-6 h-6' />
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Tick className='w-6 h-6' />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <span aria-label='Copied'>Copied</span>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           ) : (
-            <Copy className='w-6 h-6 text-yellow-50' />
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger>
+                  <Copy className='w-6 h-6 text-yellow-50' />
+                </TooltipTrigger>
+                <TooltipContent>
+                  <span aria-label='Copy'>Copy</span>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
           )}
         </Button>
       </DropdownMenuTrigger>
@@ -37,7 +62,7 @@ function CopyToClipboard() {
             <DropdownMenuItem 
               key={cmd}
               onSelect={() => {
-                copy(`${cmd} install framer-motion`)
+                copy(`${cmd} install framer-motion`);
                 toast({
                   title: `copied ${cmd} to clipboard`,
                   description: `${cmd === 'yarn' ? 'add' : 'install'} framer-motion`

@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { 
   Accordion,
   AccordionContent,
@@ -9,18 +10,24 @@ import Hero from '~/components/usage/hero';
 
 import { faqs } from '~/lib/utils';
 
+export const metadata: Metadata = {
+  title: 'Usage',
+  description: 
+    'Usage animation and hooks'
+};
+
 function Usage() {
   return (
     <div>
       <div className='max-w-7xl mx-auto px-6 py-12 sm:py-24 lg:px-8'>
         <Hero 
-          text='Variant Vault Usage Guide'
-          description='Using Variant Vault is easy. All you need to do is install Framer
+          text='Animation and hooks Usage Guide'
+          description='Using Animation and Hooks is easy. All you need to do is install Framer
           Motion and copy and paste the code into your project.'
         />
         <Discover
           title='Discover beautiful variants for your next project now!'
-          description='Thank you for using Variant Vault. I hope you enjoy it.'
+          description='Thank you for using Animation and Hooks. I hope you enjoy it.'
         />
 
         <div className="mt-20">

@@ -17,7 +17,7 @@ function Features() {
         }
       }}
     >
-      <div className="mx-auto mt-12 max-w-7xl px-6 sm:mt-56">
+      <div className="mx-auto mt-24 max-w-7xl px-6">
         <div className="mx-auto max-w-2xl lg:text-center">
           <motion.h2
             variants={FADE_UP_ANIMATION_VARIANTS}
@@ -27,12 +27,12 @@ function Features() {
           </motion.h2>
           <motion.p
             variants={FADE_UP_ANIMATION_VARIANTS}
-            className='text-3xl tracking-wide'
+            className='text-4xl tracking-wide'
           >
             Beautiful Framer Motion Animations
           </motion.p>
           <motion.p
-            className='mt-6 leading-4'
+            className='mt-6 leading-4 text-base'
             variants={FADE_UP_ANIMATION_VARIANTS}
           >
             This example contains the fade up animation variant.

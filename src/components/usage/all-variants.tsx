@@ -7,6 +7,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '../ui/accordion';
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger 
+} from '../ui/tooltip';
+
 import { ScrollArea } from '../ui/scroll-area';
 import { Button } from '../ui/button';
 import Tick from '../icons/tick';
@@ -40,13 +47,31 @@ function AllVariants() {
               }}
             >
               {value ? (
-                <Tick className='w-6 h-6' />
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <Tick className='w-6 h-6' />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <span aria-label='Copied'>Copied</span>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               ) : (
-                <Copy className='w-6 h-6 text-yellow-50' />
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger>
+                      <Copy className='w-6 h-6 text-yellow-50' />
+                    </TooltipTrigger>
+                    <TooltipContent>
+                      <span aria-label='Copy'>Copy</span>
+                    </TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               )}
             </Button>
             <pre>
-              <code className='text-sm font-medium tracking-wide'>
+              <code className='text-[16px] font-medium tracking-wide'>
                 {DEFINITIONS_VARIANTS}
               </code>
             </pre>

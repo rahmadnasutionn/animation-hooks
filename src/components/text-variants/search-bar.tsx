@@ -62,7 +62,8 @@ function SearchBar({ filteredQuery }: SearchBarType) {
                 onSelect={() => {
                   window.location.href = `#${name}`
                     .toLowerCase()
-                    .replace(' ', '-')
+                    .split(' ')
+                    .join('-')
                   setOpen(false);
                 }}
               >

@@ -10,8 +10,8 @@ function Logo() {
     <div>
       <div className="mx-auto">
         {pathname === '/' ? (
-          <span className='text-2xl tracking-widest'>
-            Animation And Hoks
+          <span className='text-2xl tracking-normal text-muted-foreground'>
+            Animation And Hooks
           </span>
         ) : (
           <Link

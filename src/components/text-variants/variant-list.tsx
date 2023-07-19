@@ -17,7 +17,7 @@ import Reload from '~/components/icons/reload';
 interface VariantList {
   variant: VariansType;
   index?: number;
-  restartAnimation?: (index: number | undefined) => void;
+  restartAnimation?: (index: number) => void;
 }
 
 function VariantList({ variant, index, restartAnimation }: VariantList) {
@@ -26,7 +26,7 @@ function VariantList({ variant, index, restartAnimation }: VariantList) {
       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
         <div className="flex justify-between w-full mb-2 lg:mb-0">
           <h1 
-            id={variant.name.toLowerCase().replace(" ", '-')}
+            id={variant.name.toLowerCase().split(" ").join('-')}
             className='text-xl'
           >
             {variant.name}
@@ -75,7 +75,7 @@ function VariantList({ variant, index, restartAnimation }: VariantList) {
       </TabsContent>
       <TabsContent value='code'>
         <div className='p-4'>
-          <ScrollArea className='h-96 bg-primary-foreground rounded-md p-4'>
+          <ScrollArea className='h-96 overflow-auto bg-primary-foreground rounded-md p-4'>
             <pre>
               <code className='text-lg font-normal tracking-wide'>
                 {variant.code}

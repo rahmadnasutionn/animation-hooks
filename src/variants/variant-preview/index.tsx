@@ -17,7 +17,7 @@ interface ParallaxProps {
   baseVelocity: number;
 }
 
-export function FadeDownStagger({ key }: { key: number }) {
+export function FadeDownStagger({ key }: { key?: number }) {
   const FADE_DOWN_ANIMATION_VARIANTS = {
     hidden: { opacity: 0, y: -10 },
     show: { opacity: 1, y: 0, transition: { type: "spring" } },
@@ -53,13 +53,13 @@ export function FadeDownStagger({ key }: { key: number }) {
         className="mx-auto mt-6 flex items-center justify-center space-x-5"
         variants={FADE_DOWN_ANIMATION_VARIANTS}
       >
-        If you&apos;re seeing this, thank you for trying my project out! - C.J.A
+        thank you for trying my project out!
       </motion.div>
     </motion.div>
   );
 }
 
-export function FadeUpStagger({ key }: { key: number }) {
+export function FadeUpStagger({ key }: { key?: number }) {
   const FADE_UP_ANIMATION_VARIANTS = {
     hidden: { opacity: 0, y: 10 },
     show: { opacity: 1, y: 0, transition: { type: "spring" } },
@@ -101,7 +101,7 @@ export function FadeUpStagger({ key }: { key: number }) {
   );
 }
 
-export function MultiDirectionSlide({ key }: { key: number }) {
+export function MultiDirectionSlide({ key }: { key?: number }) {
   const MULTIDIRECTION_SLIDE_VARIANTS = {
     hidden: { opacity: 0, x: "-25vw" },
     visible: { opacity: 1, x: 0 },

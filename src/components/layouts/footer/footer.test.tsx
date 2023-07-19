@@ -1,7 +1,6 @@
 import { render } from "@testing-library/react";
 import Footer from "./footer";
 
-
 describe('<Footer />', () => {
   it('render text with link', () => {
     const { getByText } = render(

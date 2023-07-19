@@ -11,6 +11,7 @@ import { Button } from '../ui/button';
 import { GitHub } from '../icons/github';
 import ToggleTheme from './toggle-theme';
 import NavLinks from './nav-links/nav-links';
+import MobileNav from './mobile-nav';
 
 function MainNav() {
   const [isScroll, setIsScroll] = useState(false);
@@ -39,6 +40,9 @@ function MainNav() {
             <NavLinks />
           </div>
         </div>
+        <div className="flex lg:hidden z-50">
+          <MobileNav />
+        </div>
         <div className="hidden lg:flex space-x-1 z-50">
           <Link 
             href={config.githubRepo}
@@ -47,11 +51,11 @@ function MainNav() {
             <Button
               type='button' 
               aria-label='Github'
-              className='flex items-center' 
+              className='flex items-center'
               variant={'ghost'} 
               size={'icon'}
             >
-              <GitHub />
+              <GitHub className='w-6 h-6' />
               <span className='sr-only' aria-hidden='true'>Github</span>
             </Button>
           </Link>

@@ -26,7 +26,7 @@ function HookList({ title, description, usage, hook }: HooksType) {
             </div>
               <h4 className='text-3xl font-semibold tracking-wide mb-4'>Hook</h4>
         <div className="p-4 mb-6">
-          <div className='h-auto bg-primary-foreground rounded-md p-4 border-2 border-gray-700 overflow-x-auto'>
+          <div className='h-auto border-2 bg-primary-foreground rounded-md p-4 overflow-x-auto'>
             <pre>
               <code>
                 {hook}

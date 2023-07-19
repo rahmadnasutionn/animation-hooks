@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { FADE_DOWN_ANIMATION_VARIANTS } from '~/lib/animation';
 import { toTitleCase } from '~/lib/utils';
 import { Button } from '../ui/button';
+import AnimationCarousel from './animation-carousel';
 
 function Hero({
   text,
@@ -59,6 +60,23 @@ function Hero({
               </Button>
             </Link>
           </motion.div>
+        </motion.div>
+      </div>
+      <div className="mt-16 flow-root sm:mt-24">
+        <motion.div
+          className='rounded-md'
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.25 }}
+        >
+          <div className="-m-2 p-2 lg:-m-4 lg:px-2">
+            <h1 className='text-2xl p-2 font-bold tracking-tight sm:text-4xl mb-2'>
+              Animation Demo
+            </h1>
+
+            <AnimationCarousel />
+          </div>
         </motion.div>
       </div>
     </div>
