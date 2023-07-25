@@ -53,16 +53,20 @@ function ToastNotification({
   return (
     <div
       style={notificationStyle}
-      className="flex items-center p-3 fixed border-t-4 border-t-slate-300
-      top-0 z-[999] md:right-[40%] sm:right-32 shadow mt-10 sm:max-w-lg md:max-w-2xl max-h-max mx-auto"
+      className="
+        fixed top-0 left-0 right-0 flex items-center justify-center mx-auto w-full
+      "
     >
-      <div className="">
-        <IconComponent />
-      </div>
+      <div className="flex lg:max-w-2xl items-center border-t-2 border-t-indigo-400">
+        <div className="">
+          <IconComponent />
+          <span className="sr-only">Icon Toast</span>
+        </div>
 
-      <p style={messageStyle} className="p-1 text-ellipsis text-lg">
-        {message}
-      </p>
+        <p style={messageStyle} className="p-1 text-ellipsis sm:text-xs md:text-sm lg:text-lg">
+          {message}
+        </p>
+      </div>
     </div>
   );
 };

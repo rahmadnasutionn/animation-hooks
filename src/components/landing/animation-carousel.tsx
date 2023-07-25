@@ -86,7 +86,7 @@ function AnimationCarousel() {
     },
     {
       function: resetAnimation,
-      tooltipText: 'Reset',
+      tooltipText: 'Reload',
       icon: Reload
     }
   ]
@@ -96,15 +96,15 @@ function AnimationCarousel() {
         <CardHeader>
           <CardTitle>
             <div className="flex justify-between space-x-1">
-              <Select>
+              <Select onValueChange={(value: any) => setI(value - 1)}>
                 <SelectTrigger className='w-[250px] bg-background'>
                   <SelectValue aria-label='Search animation' placeholder='search animation' />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Animation</SelectLabel>
-                    {variants.map((variant) => (
-                      <SelectItem key={variant.id} value={variant.id.toString()}>
+                    {variants.map((variant, index) => (
+                      <SelectItem key={index} value={variant.id.toString()}>
                         {variant.name}
                       </SelectItem>
                     ))}
