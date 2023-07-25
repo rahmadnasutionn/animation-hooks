@@ -1,5 +1,5 @@
 import React from 'react'
-import { ScrollArea } from '../ui/scroll-area'
+import { HooksType } from '~/interface'
 
 function HookList({ title, description, usage, hook }: HooksType) {
   return (

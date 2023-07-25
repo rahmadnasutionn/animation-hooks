@@ -13,6 +13,7 @@ import {
 } from '~/components/ui/tooltip';
 import { ScrollArea } from '~/components/ui/scroll-area';
 import Reload from '~/components/icons/reload';
+import { VariansType } from '~/interface';
 
 interface VariantList {
   variant: VariansType;
