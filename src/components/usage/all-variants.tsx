@@ -22,12 +22,10 @@ import Copy from '../icons/copy';
 import {
   DEFINITIONS_VARIANTS
 } from '~/lib/animation';
-import { useToast } from '../ui/use-toast';
+import useToast from '~/lib/hooks/use-toast';
 
 function AllVariants() {
   const [value, copy] = usecopyToClipboard();
-
-  const { toast } = useToast();
 
   return (
     <Accordion type='single' collapsible className='w-full'>
@@ -41,9 +39,7 @@ function AllVariants() {
               className='group/button absolute right-4 top-1.5 font-medium backdrop-blur-0 transition'
               onClick={() => {
                 copy(DEFINITIONS_VARIANTS)
-                toast({
-                  title: 'Copied to clipboard'
-                })
+                useToast.success('success copy to clipboard', 1000);
               }}
             >
               {value ? (

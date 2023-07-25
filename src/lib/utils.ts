@@ -83,3 +83,12 @@ export const faqs = [
 ];
 
 export let generateZeros = (n: number) => Array(n).fill(0);
+
+export function slugify(str: string) {
+  return str
+    .toLowerCase()
+    .replace(/^\s+|\s+$/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-');
+};

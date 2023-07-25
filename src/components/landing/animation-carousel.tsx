@@ -18,7 +18,7 @@ import {
   SelectTrigger,
   SelectValue 
 } from '../ui/select';
-import { generateZeros } from '~/lib/utils';
+import { generateZeros, slugify } from '~/lib/utils';
 import { FadeDownStagger, FadeUpStagger, MultiDirectionSlide, StaggeredFadeIn, TypingEffect } from '~/variants/variant-preview';
 import { CodeIcon, FlagTriangleLeft, FlagTriangleRight } from 'lucide-react';
 import Reload from '../icons/reload';
@@ -151,7 +151,7 @@ function AnimationCarousel() {
           </CardDescription>
           <Link
             href={
-              `/text-variants#${variants[i].name.toLowerCase().split(' ').join('-')}`
+              `/text-variants#${slugify(variants[i].name)}`
             }
           >
             <Button aria-label='View' >

@@ -14,6 +14,7 @@ import {
 } from '../ui/command';
 
 import { CodeIcon } from 'lucide-react';
+import { slugify } from '~/lib/utils';
 
 interface Variants {
   name: string;
@@ -60,10 +61,7 @@ function SearchBar({ filteredQuery }: SearchBarType) {
               <CommandItem
                 key={name}
                 onSelect={() => {
-                  window.location.href = `#${name}`
-                    .toLowerCase()
-                    .split(' ')
-                    .join('-')
+                  window.location.href = `#${slugify(name)}`
                   setOpen(false);
                 }}
               >

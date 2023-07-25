@@ -17,11 +17,10 @@ import Tick from '../icons/tick';
 import Copy from '../icons/copy';
 
 import usecopyToClipboard from '~/lib/hooks/usecopy-to-clipboard';
-import { useToast } from '~/lib/hooks/use-toast';
+import useToast from '~/lib/hooks/use-toast';
 
 function CopyToClipboard() {
   const [value, copy] = usecopyToClipboard();
-  const { toast } = useToast();
 
   return (
     <DropdownMenu>
@@ -63,10 +62,7 @@ function CopyToClipboard() {
               key={cmd}
               onSelect={() => {
                 copy(`${cmd} install framer-motion`);
-                toast({
-                  title: `copied ${cmd} to clipboard`,
-                  description: `${cmd === 'yarn' ? 'add' : 'install'} framer-motion`
-                })
+                useToast.success(`${cmd} install framer-motion to clipboard`, 2000)
                }
               }
             >
