@@ -17,7 +17,7 @@ export default function usecopyToClipboard(): [CopiedValue, CopyFn] {
     try {
       await navigator.clipboard.writeText(text);
       setCopiedText(text);
-      setTimeout(() => setCopiedText(null), 1000);
+      setTimeout(() => setCopiedText(null), 2000);
     } catch (error) {
       console.warn('Copy failed', error);
       return false;

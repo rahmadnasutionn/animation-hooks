@@ -1,5 +1,4 @@
 import React from 'react'
-import usecopyToClipboard from '~/lib/hooks/usecopy-to-clipboard';
 
 import {
   Accordion,
@@ -22,10 +21,12 @@ import Copy from '../icons/copy';
 import {
   DEFINITIONS_VARIANTS
 } from '~/lib/animation';
-import useToast from '~/lib/hooks/use-toast';
+import { useConfetti } from '~/lib/hooks/use-confetti';
+import usecopyToClipboard from '~/lib/hooks/usecopy-to-clipboard';
 
 function AllVariants() {
   const [value, copy] = usecopyToClipboard();
+  const { confettiFn, isAnimating } = useConfetti('confettiId', 'confetti');
 
   return (
     <Accordion type='single' collapsible className='w-full'>
@@ -33,13 +34,14 @@ function AllVariants() {
         <AccordionTrigger>All Variants</AccordionTrigger>
         <AccordionContent>
           <ScrollArea className='h-96 bg-primary-foreground rounded-md p-4'>
+            <span id='confettiId' />
             <Button
               size={'icon'}
               variant={'outline'}
               className='group/button absolute right-4 top-1.5 font-medium backdrop-blur-0 transition'
               onClick={() => {
                 copy(DEFINITIONS_VARIANTS)
-                useToast.success('success copy to clipboard', 1000);
+                confettiFn();
               }}
             >
               {value ? (

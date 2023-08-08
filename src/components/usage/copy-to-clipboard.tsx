@@ -17,10 +17,11 @@ import Tick from '../icons/tick';
 import Copy from '../icons/copy';
 
 import usecopyToClipboard from '~/lib/hooks/usecopy-to-clipboard';
-import useToast from '~/lib/hooks/use-toast';
+import { useConfetti } from '~/lib/hooks/use-confetti';
 
 function CopyToClipboard() {
   const [value, copy] = usecopyToClipboard();
+  const { confettiFn, isAnimating } = useConfetti('confettiId', 'confetti');
 
   return (
     <DropdownMenu>
@@ -30,6 +31,8 @@ function CopyToClipboard() {
           variant={'outline'}
           className='absolute right-2 top-1.5 overflow-hidden text-2xl'
         >
+          <span id='confettiId' />
+          <span className='sr-only'>Confetti</span>
           {value ? (
             <TooltipProvider>
               <Tooltip>
@@ -62,7 +65,7 @@ function CopyToClipboard() {
               key={cmd}
               onSelect={() => {
                 copy(`${cmd} install framer-motion`);
-                useToast.success(`${cmd} install framer-motion to clipboard`, 2000)
+                confettiFn()
                }
               }
             >
