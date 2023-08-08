@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx"
 import { twMerge } from "tailwind-merge"
+import { AnimateFunction } from "~/interface";
  
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
@@ -92,3 +93,77 @@ export function slugify(str: string) {
     .replace(/[^\w-]+/g, '')
     .replace(/--+/g, '-');
 };
+
+export const degreeToRadius = (degress: number) => degress * (Math.PI / 180);
+
+export const getRandomInteger = (min: number, max: number) => {
+  const minValue = Math.min(min);
+  const maxValue = Math.max(max);
+
+  return Math.floor(Math.random() * (maxValue - minValue) + minValue);
+};
+
+export const generatePhysics = (
+  angle: number,
+  spread: number,
+  startVelocity: number,
+  differentiator: number,
+) => {
+  const radiusAngle = degreeToRadius(angle);
+  const radiusSpread = degreeToRadius(spread);
+
+  const { PI } = Math;
+
+  return {
+    x: 0,
+    y: 0,
+    z: 0,
+    height: 0,
+    wobble: Math.random() * 10,
+    velocity: startVelocity * 0.5 + Math.random() * startVelocity,
+    angle2D: -radiusAngle + (0.5 * radiusSpread - Math.random() * radiusSpread),
+    angle3D: -(Math.PI / 4) + Math.random() * (Math.PI / 2),
+    tiltAngle: Math.random() * PI,
+    differentiator,
+  }
+};
+
+export function getContainerById(id: string) {
+  const container = document.getElementById(id);
+  if (!container) return;
+
+  return container;
+};
+
+export const animate: AnimateFunction = ({
+  root,
+  particles,
+  decay,
+  lifetime,
+  updateParticle,
+  onFinish
+}) => {
+  const timeout = lifetime;
+  let tick = 0;
+
+  const update = () => {
+    particles.forEach(particle => {
+      updateParticle(particle, tick / timeout, decay);
+    });
+
+    tick += 1;
+
+    if (tick < timeout) {
+      window.requestAnimationFrame(update);
+    } else {
+      particles.forEach(particle => {
+        if (particle.element.parentNode === root) {
+          return root.removeChild(particle.element);
+        }
+      });
+      onFinish();
+    }
+  };
+
+  window.requestAnimationFrame(update);
+}
